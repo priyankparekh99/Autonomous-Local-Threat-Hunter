@@ -19,22 +19,21 @@ Modern Security Operations Centers (SOCs) face a dilemma: uploading massive volu
 ## 🏗️ Architecture Pipeline
 ┌─────────────────────────┐
 │ Raw Logs (Nginx / SSH / │
-│ JSON Telemetry)         │
+│ Syslog / CloudTrail)    │
 └─────────────────────────┘
-│
-▼
+             │
+             ▼
 ┌─────────────────────────┐      ┌─────────────────────────┐
 │ In-Memory SQL Engine    │<────>│ Query Tool Node         │
-│ (DuckDB Fast Analytical)│      │ (Detects anomalous bursts)│
+│ (DuckDB Fast Analytical)│      │ (Generates & runs SQL)  │
 └─────────────────────────┘      └─────────────────────────┘
-▲
-│ LangGraph
-▼ Loop
+                                              ▲
+                                              │ LangGraph
+                                              ▼ Loop
 ┌─────────────────────────┐      ┌─────────────────────────┐
-│ Executive SOC Markdown  │<─────│ Local LLM (Qwen 2.5 7B) │
-│ Incident & Threat Report│      │ Analyzes IOCs & Mitigations│
+│ Automated Markdown      │<─────│ Local LLM (Qwen 2.5 7B) │
+│ Incident & Threat Report│      │ Analyzes Threat Pattern │
 └─────────────────────────┘      └─────────────────────────┘
-
 ## ✨ Key Features
 
 - **100% Air-Gapped & Private:** Zero external API calls. Your security logs and threat intelligence never leave your machine.
