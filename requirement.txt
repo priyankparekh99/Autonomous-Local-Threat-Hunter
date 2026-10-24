@@ -1,0 +1,5 @@
+duckdb
+langgraph
+langchain
+langchain-ollama
+pandas
