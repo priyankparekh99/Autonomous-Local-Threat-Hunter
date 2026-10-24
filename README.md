@@ -17,6 +17,7 @@ Modern Security Operations Centers (SOCs) face a dilemma: uploading massive volu
 ---
 
 ## 🏗️ Architecture Pipeline
+```txt
 ┌─────────────────────────┐
 │ Raw Logs (Nginx / SSH / │
 │ Syslog / CloudTrail)    │
@@ -34,6 +35,7 @@ Modern Security Operations Centers (SOCs) face a dilemma: uploading massive volu
 │ Automated Markdown      │<─────│ Local LLM (Qwen 2.5 7B) │
 │ Incident & Threat Report│      │ Analyzes Threat Pattern │
 └─────────────────────────┘      └─────────────────────────┘
+
 ## ✨ Key Features
 
 - **100% Air-Gapped & Private:** Zero external API calls. Your security logs and threat intelligence never leave your machine.
